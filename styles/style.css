@@ -7,24 +7,6 @@ body {
     color: #333;
 }
 
-/* Modo oscuro */
-.dark-theme {
-    background-color: #121212;
-    color: #FFFFFF;
-}
-
-.dark-theme .nav {
-    background-color: #333;
-}
-
-.dark-theme .nav-link {
-    color: #FFFFFF;
-}
-
-.dark-theme .nav-link:hover {
-    color: #57C4E5;
-}
-
 /* Navbar */
 .nav {
     background-color: #003566;
@@ -59,44 +41,6 @@ body {
     color: #57C4E5;
 }
 
-/* Estilo del interruptor para el tema */
-.theme-switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    margin-left: 20px;
-}
-
-.theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.theme-switch .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
-}
-
-.theme-switch .slider:before {
-    position: absolute;
-    content: "";
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    left: 4px;
-    bottom: 5px;
-    background-color: white;
-    transition: 0.4s;
-}
 
 /* Cuando el interruptor está activado */
 .theme-switch input:checked + .slider {
