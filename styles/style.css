@@ -1,0 +1,441 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    color: #333;
+}
+
+/* Modo oscuro */
+.dark-theme {
+    background-color: #121212;
+    color: #FFFFFF;
+}
+
+.dark-theme .nav {
+    background-color: #333;
+}
+
+.dark-theme .nav-link {
+    color: #FFFFFF;
+}
+
+.dark-theme .nav-link:hover {
+    color: #57C4E5;
+}
+
+/* Navbar */
+.nav {
+    background-color: #003566;
+    padding: 0; /* Eliminar padding */
+    margin: 0; /* Eliminar margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.nav-logo {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    color: #FFFFFF;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #57C4E5;
+}
+
+/* Estilo del interruptor para el tema */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    margin-left: 20px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.theme-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 5px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* Cuando el interruptor está activado */
+.theme-switch input:checked + .slider {
+    background-color: #57C4E5;
+}
+
+.theme-switch input:checked + .slider:before {
+    transform: translateX(25px);
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-link {
+        margin: 10px 0;
+    }
+}
+
+
+/* General */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Altura ajustada */
+    overflow: hidden;
+}
+
+/* Video de fondo */
+.carousel-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+/* Estilo para las divisiones */
+.division {
+    background-color: #003566; /* Fondo principal */
+    color: #E0F7FA; /* Color de texto claro para contraste */
+    padding: 0; /* Eliminar padding */
+    margin: 0; /* Eliminar margin */
+    width: 100%; /* Ocupa todo el ancho */
+    text-align: center; /* Centra el contenido dentro de la división */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra sutil para profundidad */
+}
+
+/* Títulos dentro de las divisiones */
+.division h2 {
+    font-size: 2.5rem; /* Tamaño más grande para los títulos */
+    color: #57C4E5; /* Color atractivo para los títulos */
+    margin: 0; /* Eliminar margin */
+}
+
+/* Párrafos dentro de las divisiones */
+.division p {
+    font-size: 1.2rem; /* Tamaño adecuado del texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin: 0; /* Eliminar margin */
+}
+
+/* Agregamos una variación de color en cada división */
+.division:nth-child(odd) {
+    background-color: #006F8E; /* Azul más oscuro para divisiones impares */
+}
+
+.division:nth-child(even) {
+    background-color: #0097A7; /* Azul más claro para divisiones pares */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .division {
+        padding: 0; /* Eliminar padding para pantallas pequeñas */
+    }
+}
+
+
+/* Contenido del carrusel */
+.carousel-content {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ocupa toda la altura del carrusel */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Posiciona el contenido en la base */
+    overflow: hidden; /* Asegura que no se vean elementos fuera del carrusel */
+}
+
+/* Cada slide ocupa su propio espacio */
+.carousel-item {
+    position: absolute;
+    width: 100%; /* Cada slide ocupa todo el ancho del carrusel */
+    height: 100%;
+    display: none; /* Ocultar slides que no estén activos */
+    justify-content: center; /* Centramos el contenido horizontalmente */
+    align-items: flex-end; /* Centramos verticalmente cerca de la base */
+}
+
+.carousel-item.active {
+    display: flex; /* Solo el slide activo será visible */
+}
+
+/* Texto con fondo translúcido */
+.carousel-text {
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 80%; /* Limita el ancho del texto */
+    margin-bottom: 0; /* Eliminar margin */
+}
+
+.carousel-text h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.carousel-text p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+}
+
+/* Puntos de navegación */
+.carousel-dots {
+    position: absolute;
+    bottom: 10px; /* Espaciado desde el texto */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: rgba(255, 255, 255, 1);
+}
+
+
+/* Formulario de contacto con fondo gradiente */
+.contactenos-box {
+    background: linear-gradient(to bottom right, #003566, #0097A7);
+    margin: 0; /* Elimina márgenes */
+    padding: 20px; 
+}
+
+/* Caja principal de contacto */
+.contact {
+    /* Fondo semi-transparente con difuminado */
+    background: rgba(0, 0, 0, 0.3); /* Fondo oscuro con 30% de opacidad */
+    backdrop-filter: blur(10px); /* Difumina el fondo */
+    color: #FFFFFF;
+    padding: 30px; /* Reducido padding */
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto; /* Centrando el formulario */
+    /* Se eliminó el box-shadow */
+}
+
+/* Caja contenedora con fondo semitransparente */
+.contact-container {
+    background: rgba(0, 0, 0, 0.4); /* Fondo negro con opacidad del 40% */
+    padding: 15px; /* Reducido padding */
+    border-radius: 8px;
+    /* Se eliminó el box-shadow */
+}
+
+.contact h1 {
+    color: #57C4E5; /* Color brillante para el título */
+    text-align: center;
+    margin-bottom: 15px; /* Reducido margen inferior */
+}
+
+.contact label {
+    display: block;
+    margin: 8px 0 4px; /* Reducido margen */
+}
+
+.contact input, .contact textarea, .contact button {
+    width: 100%;
+    padding: 8px; /* Reducido padding */
+    margin-bottom: 12px; /* Reducido margen */
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    font-size: 14px; /* Reducido tamaño de fuente */
+}
+
+/* Estilo del botón */
+.contact button {
+    background-color: #57C4E5;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.contact button:hover {
+    background-color: #2E2E2E;
+}
+
+/* Asegura que la caja contenedora y el formulario se ajusten bien */
+.contact-container input, .contact-container textarea, .contact-container button {
+    border-radius: 6px;
+}
+
+
+/* Estilo del footer */
+.footer {
+    background-color: #003566; /* Manteniendo la paleta de colores */
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor de datos del footer */
+.footer-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px /* Espaciado en el eje Y */
+}
+
+/* Logo del footer */
+.footer-data img {
+    max-width: 150px;
+    margin-right: 20px; /* Espaciado entre el logo y el botón */
+}
+
+/* Estilo para los iconos de redes sociales en el footer */
+.footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre los iconos */
+    padding: 5px 0; /* Se reduce el espacio arriba y abajo */
+    margin-right: 27px;
+}
+
+.footer .social-links a {
+    display: inline-block;
+}
+
+.footer .social-links img {
+    width: 30px; /* Tamaño adecuado para los iconos */
+    height: 30px;
+    transition: transform 0.3s ease-in-out; /* Animación suave en el hover */
+
+}
+
+.footer .social-links img:hover {
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+
+/* Estilo de la sección de copyright */
+.copyright {
+    background-color: #002A44; /* Tonalidad más oscura para el fondo */
+    padding: 10px 0;
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #003566;
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    color: #57C4E5;
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    background-color: #57C4E5;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-content button:hover {
+    background-color: #2E2E2E;
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+

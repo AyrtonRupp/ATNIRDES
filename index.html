@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atnirdes</title>
+    <link rel="stylesheet" href="styles/style.css"> 
+    <link rel="icon" href="assets/logos/logo.png" type="image/png">
+</head>
+
+
+<body>
+
+    <nav class="nav" id="inicio">
+        <img src="assets/logos/logo_transparent.png" alt="logo" class="nav-logo">
+        <div class="navbar">
+            <a href="#servicies" class="nav-link">Servicios</a>
+            <a href="#contact" class="nav-link">Contáctanos</a>
+            <!-- Botón con el efecto de cambio de tema -->
+            <label class="theme-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </nav>
+    
+    
+    
+    
+
+    <div class="division">
+        <h2>Transformación Digital</h2>
+        <p>Ofrecemos soluciones integrales para impulsar y proteger tu negocio con nuestros servicios especializados en:</p>
+    </div>
+
+    
+
+    <div class="carousel">
+        <!-- Video de fondo -->
+        <video class="carousel-video" autoplay muted loop>
+            <source src="assets/video/video.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+
+        <!-- Contenido del carrusel -->
+        <div class="carousel-content">
+            <div class="carousel-item active">
+                <div class="carousel-text">
+                    <h1>Transformación Digital</h1>
+                    <p>Impulsamos la innovación y eficiencia de tu empresa mediante la integración de tecnologías digitales avanzadas en todos los aspectos de tu negocio..</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-text">
+                    <h1>Análisis de Datos</h1>
+                    <p>Transformamos tus datos en información valiosa para tomar decisiones estratégicas y descubrir nuevas oportunidades de negocio.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-text">
+                    <h1>Control de Calidad</h1>
+                    <p>Garantizamos productos y servicios de alta calidad a través de rigurosos procesos y estándares de control..</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-text">
+                    <h1>Auditoría de Seguridad de la Información</h1>
+                    <p>Protegemos tu infraestructura de TI mediante auditorías exhaustivas que identifican y mitigan riesgos de seguridad.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-text">
+                    <h1>Desarrollo de Software a Medida</h1>
+                    <p>Desarrollamos soluciones de software personalizadas que se adaptan perfectamente a las necesidades específicas de tu empresa.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-text">
+                    <h1>Mantenimiento de Servidores</h1>
+                    <p>DAseguramos el funcionamiento óptimo y la seguridad de tus servidores mediante mantenimiento y monitoreo continuo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegación con puntos -->
+        <div class="carousel-dots">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+            <span class="dot" onclick="setSlide(3)"></span>
+            <span class="dot" onclick="setSlide(4)"></span>
+            <span class="dot" onclick="setSlide(5)"></span>
+        </div>
+    </div>
+    
+    <div class="division">
+        <p>Refinamos constantemente nuestra capacidad para actuar como el enlace vital entre las demandas empresariales, las habilidades técnicas y el potencial humano.</p>
+    </div>
+    
+    
+    <div class="contactenos-box">
+    <div class="contact" id="contact">
+        <h1>Contáctanos</h1>
+        <form id="contactForm" action="javascript:void(0);" method="POST">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required>
+    
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+    
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Ejemplo: 123-456-7890">
+    
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí"></textarea>
+    
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+    </div>
+    </div>
+
+    
+    <!-- Modal de confirmación -->
+    <div id="confirmationModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>¡Gracias por contactarnos!</h2>
+            <p>Pronto uno de nuestros operadores se pondrá en contacto contigo. Nos esforzamos por responder lo más rápido posible.</p>
+            <button id="closeModal" class="btn">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="division">
+        <h2>Soluciones a medida</h2>
+        <p>Trabajamos de manera proactiva junto a nuestros clientes para brindarles las mejores soluciones adaptadas a sus necesidades.</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-data">
+            <img src="assets/logos/logo_transparent.png" alt="footer-logo">
+        </div>
+        <hr class="separator">
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="assets/logos/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="assets/logos/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank">
+                <img src="assets/logos/linkedin.png" alt="LinkedIn">
+            </a>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2024 • Atnirdes | All Right Reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script src="js/script.js"></script>
+</body>
+</html>
