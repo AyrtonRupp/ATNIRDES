@@ -88,6 +88,76 @@ body {
 }
 
 
+/* Contenido del carrusel */
+.carousel-content {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ocupa toda la altura del carrusel */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Posiciona el contenido en la base */
+    overflow: hidden; /* Asegura que no se vean elementos fuera del carrusel */
+}
+
+/* Cada slide ocupa su propio espacio */
+.carousel-item {
+    position: absolute;
+    width: 100%; /* Cada slide ocupa todo el ancho del carrusel */
+    height: 100%;
+    display: none; /* Ocultar slides que no estén activos */
+    justify-content: center; /* Centramos el contenido horizontalmente */
+    align-items: flex-end; /* Centramos verticalmente cerca de la base */
+}
+
+.carousel-item.active {
+    display: flex; /* Solo el slide activo será visible */
+}
+
+/* Texto con fondo translúcido */
+.carousel-text {
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 80%; /* Limita el ancho del texto */
+    margin-bottom: 0; /* Eliminar margin */
+}
+
+.carousel-text h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.carousel-text p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+}
+
+/* Puntos de navegación */
+.carousel-dots {
+    position: absolute;
+    bottom: 10px; /* Espaciado desde el texto */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: rgba(255, 255, 255, 1);
+}
+
+
 /* Estilo para las divisiones */
 .division {
     background-color: #003566; /* Fondo principal */
@@ -130,126 +200,101 @@ body {
 }
 
 
-/* Contenido del carrusel */
-.carousel-content {
-    position: relative;
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%; /* Ocupa toda la altura del carrusel */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Posiciona el contenido en la base */
-    overflow: hidden; /* Asegura que no se vean elementos fuera del carrusel */
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
 }
 
-/* Cada slide ocupa su propio espacio */
-.carousel-item {
-    position: absolute;
-    width: 100%; /* Cada slide ocupa todo el ancho del carrusel */
-    height: 100%;
-    display: none; /* Ocultar slides que no estén activos */
-    justify-content: center; /* Centramos el contenido horizontalmente */
-    align-items: flex-end; /* Centramos verticalmente cerca de la base */
-}
-
-.carousel-item.active {
-    display: flex; /* Solo el slide activo será visible */
-}
-
-/* Texto con fondo translúcido */
-.carousel-text {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-    padding: 20px;
-    border-radius: 10px;
+.modal-content {
+    background-color: #003566;
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
     text-align: center;
-    color: white;
-    max-width: 80%; /* Limita el ancho del texto */
-    margin-bottom: 0; /* Eliminar margin */
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-text h1 {
-    margin: 0;
-    font-size: 2rem;
+.modal-content h2 {
+    color: #57C4E5;
+    margin-bottom: 20px;
 }
 
-.carousel-text p {
-    margin: 10px 0 0;
-    font-size: 1rem;
-}
-
-/* Puntos de navegación */
-.carousel-dots {
-    position: absolute;
-    bottom: 10px; /* Espaciado desde el texto */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-.dot {
-    width: 15px;
-    height: 15px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
+.modal-content button {
+    background-color: #57C4E5;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background 0.3s;
+    font-weight: bold;
 }
 
-.dot.active {
-    background: rgba(255, 255, 255, 1);
+.modal-content button:hover {
+    background-color: #2E2E2E;
 }
 
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
 
-/* Formulario de contacto con fondo gradiente */
+/* Formulario */
 .contactenos-box {
     background: linear-gradient(to bottom right, #003566, #0097A7);
-    margin: 0; /* Elimina márgenes */
-    padding: 20px; 
+    padding: 20px;
 }
 
-/* Caja principal de contacto */
 .contact {
-    /* Fondo semi-transparente con difuminado */
-    background: rgba(0, 0, 0, 0.3); /* Fondo oscuro con 30% de opacidad */
-    backdrop-filter: blur(10px); /* Difumina el fondo */
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     color: #FFFFFF;
-    padding: 30px; /* Reducido padding */
+    padding: 30px;
     border-radius: 8px;
-    width: 100%;
     max-width: 500px;
-    margin: 0 auto; /* Centrando el formulario */
-    /* Se eliminó el box-shadow */
-}
-
-/* Caja contenedora con fondo semitransparente */
-.contact-container {
-    background: rgba(0, 0, 0, 0.4); /* Fondo negro con opacidad del 40% */
-    padding: 15px; /* Reducido padding */
-    border-radius: 8px;
-    /* Se eliminó el box-shadow */
+    margin: 0 auto;
 }
 
 .contact h1 {
-    color: #57C4E5; /* Color brillante para el título */
+    color: #57C4E5;
     text-align: center;
-    margin-bottom: 15px; /* Reducido margen inferior */
+    margin-bottom: 20px;
 }
 
 .contact label {
     display: block;
-    margin: 8px 0 4px; /* Reducido margen */
+    margin-bottom: 8px;
 }
 
-.contact input, .contact textarea, .contact button {
+.contact input,
+.contact textarea,
+.contact button {
     width: 100%;
-    padding: 8px; /* Reducido padding */
-    margin-bottom: 12px; /* Reducido margen */
+    padding: 12px;
+    margin-bottom: 15px;
     border: 1px solid #D9D9D9;
     border-radius: 4px;
-    font-size: 14px; /* Reducido tamaño de fuente */
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
-/* Estilo del botón */
+.contact textarea {
+    resize: none;
+    height: 120px;
+}
+
 .contact button {
     background-color: #57C4E5;
     color: #FFFFFF;
@@ -262,10 +307,21 @@ body {
     background-color: #2E2E2E;
 }
 
-/* Asegura que la caja contenedora y el formulario se ajusten bien */
-.contact-container input, .contact-container textarea, .contact-container button {
-    border-radius: 6px;
+/* Responsivo */
+@media (max-width: 600px) {
+    .contact {
+        padding: 20px;
+    }
+
+    .contact h1 {
+        font-size: 1.5rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
 }
+
 
 
 /* Estilo del footer */

@@ -46,19 +46,18 @@ showSlide(currentIndex);
 startAutoSlide();
 
 
-// Contactenos
-
 const form = document.getElementById('contactForm');
 const modal = document.getElementById('confirmationModal');
 const closeModal = document.getElementById('closeModal');
 
 // Mostrar el modal cuando se envíe el formulario
-form.addEventListener('submit', function (event) {
-    modal.classList.add('visible');
+form.addEventListener('submit', function () {
+    modal.classList.add('show');
 });
 
 // Cerrar el modal al hacer clic en el botón de cerrar
 closeModal.addEventListener('click', function () {
-    modal.classList.remove('visible');
+    modal.classList.remove('show');
 });
+
 
