@@ -1,0 +1,120 @@
+<div class="services-section" id="servicios">
+    <h1>Nuestros Servicios</h1>
+    <p>Ofrecemos soluciones integrales para transformar y optimizar los procesos de tu empresa, con un enfoque en la tecnología y el cliente.</p>
+    <div class="cards-container">
+      <div class="service-card">
+        <div class="icon">📱</div>
+        <h3>Digitalización</h3>
+        <p>Transformamos procesos tradicionales a soluciones digitales eficientes y modernas.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">💻</div>
+        <h3>Redes sociales</h3>
+        <p>Desarrollamos estrategias efectivas para aumentar la presencia digital de tu marca.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🔧</div>
+        <h3>Soporte Técnico</h3>
+        <p>Brindamos asistencia profesional para resolver problemas tecnológicos de manera rápida y efectiva.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🎓</div>
+        <h3>Capacitación</h3>
+        <p>Ofrecemos formación continua para tu equipo en las últimas herramientas tecnológicas.</p>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+  /* Sección de Servicios */
+  .services-section {
+    width: 100%;
+    padding: 2rem;
+    background-color: #f8f8f8;
+    text-align: center;
+  }
+  
+  .services-section h1 {
+    font-family: 'Heebo', sans-serif;
+    font-size: 2.5rem;
+    color: rgb(130, 28, 111);
+    margin-bottom: 1rem;
+  }
+  
+  .services-section p {
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .service-card {
+    background-color: #fff;
+    border: 2px solid rgb(130, 28, 111);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 22%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .icon {
+    font-size: 3rem;
+    color: rgb(130, 28, 111);
+    margin-bottom: 1rem;
+    transition: transform 0.5s ease;
+  }
+  
+  .service-card:hover .icon {
+    transform: rotate(360deg); /* Rotación completa */
+  }
+  
+  .service-card h3 {
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.5rem;
+    color: rgb(130, 28, 111);
+    margin-bottom: 1rem;
+  }
+  
+  .service-card p {
+    font-family: 'Heebo', sans-serif;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .service-card {
+      width: 48%; /* Dos cards por fila en pantallas más pequeñas */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .service-card {
+      width: 100%; /* Una card por fila en pantallas muy pequeñas */
+    }
+  
+    .services-section h1 {
+      font-size: 2rem; /* Reducir tamaño de texto en pantallas pequeñas */
+    }
+  
+    .services-section p {
+      font-size: 1rem; /* Reducir tamaño de texto en pantallas pequeñas */
+    }
+  }
+  </style>
+  

@@ -1,0 +1,205 @@
+---
+
+---
+
+<div class="carousel">
+    <!-- Video de fondo -->
+    <video class="carousel-video" autoplay muted loop>
+        <source src="/assets/video/video.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+    </video>
+
+    <!-- Contenido del carrusel -->
+    <div class="carousel-content">
+        <div class="carousel-item active">
+            <div class="carousel-text">
+                <h1>Transformación Digital</h1>
+                <p>Impulsamos la innovación y eficiencia de tu empresa mediante la integración de tecnologías digitales avanzadas en todos los aspectos de tu negocio..</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-text">
+                <h1>Análisis de Datos</h1>
+                <p>Transformamos tus datos en información valiosa para tomar decisiones estratégicas y descubrir nuevas oportunidades de negocio.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-text">
+                <h1>Control de Calidad</h1>
+                <p>Garantizamos productos y servicios de alta calidad a través de rigurosos procesos y estándares de control..</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-text">
+                <h1>Auditoría de Seguridad de la Información</h1>
+                <p>Protegemos tu infraestructura de TI mediante auditorías exhaustivas que identifican y mitigan riesgos de seguridad.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-text">
+                <h1>Desarrollo de Software a Medida</h1>
+                <p>Desarrollamos soluciones de software personalizadas que se adaptan perfectamente a las necesidades específicas de tu empresa.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-text">
+                <h1>Mantenimiento de Servidores</h1>
+                <p>DAseguramos el funcionamiento óptimo y la seguridad de tus servidores mediante mantenimiento y monitoreo continuo</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación con puntos -->
+    <div class="carousel-dots">
+        <span class="dot active" onclick="setSlide(0)"></span>
+        <span class="dot" onclick="setSlide(1)"></span>
+        <span class="dot" onclick="setSlide(2)"></span>
+        <span class="dot" onclick="setSlide(3)"></span>
+        <span class="dot" onclick="setSlide(4)"></span>
+        <span class="dot" onclick="setSlide(5)"></span>
+    </div>
+</div>
+
+
+<style>
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Altura ajustada */
+    overflow: hidden;
+}
+
+/* Video de fondo */
+.carousel-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+/* Contenido del carrusel */
+.carousel-content {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ocupa toda la altura del carrusel */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Posiciona el contenido en la base */
+    overflow: hidden; /* Asegura que no se vean elementos fuera del carrusel */
+}
+
+/* Cada slide ocupa su propio espacio */
+.carousel-item {
+    position: absolute;
+    width: 100%; /* Cada slide ocupa todo el ancho del carrusel */
+    height: 100%;
+    display: none; /* Ocultar slides que no estén activos */
+    justify-content: center; /* Centramos el contenido horizontalmente */
+    align-items: flex-end; /* Centramos verticalmente cerca de la base */
+}
+
+.carousel-item.active {
+    display: flex; /* Solo el slide activo será visible */
+}
+
+/* Texto con fondo translúcido */
+.carousel-text {
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 80%; /* Limita el ancho del texto */
+    margin-bottom: 0; /* Eliminar margin */
+    font-family: heebo, montserrat;
+}
+
+.carousel-text h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.carousel-text p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+}
+
+/* Puntos de navegación */
+.carousel-dots {
+    position: absolute;
+    bottom: 10px; /* Espaciado desde el texto */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: rgba(255, 255, 255, 1);
+}
+</style>
+
+
+
+<script>
+// carrousel
+const items = document.querySelectorAll('.carousel-item');
+const dots = document.querySelectorAll('.dot');
+let currentIndex = 0;
+let autoSlide;
+
+// Mostrar el slide correspondiente
+function showSlide(index) {
+    items.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+    });
+    currentIndex = index;
+}
+
+// Avanzar al siguiente slide
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % items.length;
+    showSlide(currentIndex);
+}
+
+// Configurar el intervalo automático (6 segundos)
+function startAutoSlide() {
+    autoSlide = setInterval(nextSlide, 5000);
+}
+
+// Detener la transición automática
+function stopAutoSlide() {
+    clearInterval(autoSlide);
+}
+
+// Cambiar a un slide específico al hacer clic en un punto
+function setSlide(index) {
+    stopAutoSlide(); // Pausar transición automática
+    showSlide(index);
+    startAutoSlide(); // Reiniciar transición automática
+}
+
+// Event listeners para los puntos
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => setSlide(index));
+});
+
+// Inicializar carrusel
+showSlide(currentIndex);
+startAutoSlide();
+
+</script>

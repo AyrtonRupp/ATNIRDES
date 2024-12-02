@@ -1,0 +1,104 @@
+<div class="hero-section">
+    <h1>Cambiar el mundo a través de la innovación tecnológica.</h1>
+    <p>Impulsamos soluciones que transforman ideas en realidades y mejoran la vida de las personas.</p>
+    <button class="cta-button">Contáctanos</button>
+  </div>
+  
+  <style>
+  /* Hero Section */
+  .hero-section {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(130, 28, 111, 0.1), rgba(240, 188, 215, 0.1)); /* Degradado suave */
+    border-top: 2px solid rgba(130, 28, 111, 0.5); /* Línea decorativa */
+    border-bottom: 2px solid rgba(130, 28, 111, 0.5);
+    padding: 2rem 1rem; /* Espaciado para evitar choques */
+    box-sizing: border-box; /* Incluye padding en el cálculo del tamaño */
+  }
+  
+  /* Texto */
+  .hero-section h1 {
+    font-family: 'Heebo', sans-serif;
+    font-size: 2.5rem;
+    color: rgb(130, 28, 111);
+    margin: 0;
+    animation: fadeIn 1s ease-in-out; /* Animación */
+  }
+  
+  .hero-section p {
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 0.5rem 0; /* Espaciado sutil */
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* Botón */
+  .cta-button {
+    font-family: 'Heebo', sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    background-color: rgb(130, 28, 111);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: rgba(130, 28, 111, 0.9);
+    transform: scale(1.1);
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsivo */
+  @media screen and (max-width: 768px) {
+    .hero-section {
+      height: auto; /* Permite que el contenido ajuste el alto */
+      padding: 3rem 1rem; /* Más espacio en dispositivos pequeños */
+    }
+  
+    .hero-section h1 {
+      font-size: 2rem; /* Tamaño reducido en pantallas más pequeñas */
+    }
+  
+    .hero-section p {
+      font-size: 1rem; /* Ajusta el texto a pantallas pequeñas */
+    }
+  
+    .cta-button {
+      font-size: 0.9rem; /* Botón más pequeño para móviles */
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .hero-section h1 {
+      font-size: 1.8rem; /* Aún más pequeño para móviles muy compactos */
+    }
+  
+    .hero-section p {
+      font-size: 0.9rem;
+    }
+  }
+  </style>
+  
+  

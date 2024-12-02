@@ -1,0 +1,292 @@
+---
+
+---
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<header>
+  <!-- Logo -->
+  <a href="index.astro"><img class="logo" src="/assets/logos/logo_transparent.png" alt="Logo"></a>
+  
+  <!-- Redes Sociales -->
+  <div class="rs-container">
+    <a class="rs-logo" href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+      <img class="logo-rs" src="/assets/logos/facebook.png" alt="Facebook">
+    </a>
+    <a class="rs-logo" href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+      <img class="logo-rs" src="/assets/logos/instagram.png" alt="Instagram">
+    </a>
+    <a class="rs-logo" href="https://www.linkedin.com/feed/" target="_blank" aria-label="LinkedIn">
+      <img class="logo-rs" src="/assets/logos/linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+  
+  <!-- Botón Abrir Menú -->
+  <button id="abrir" class="abrir-menu" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+  
+  <!-- Navegación -->
+  <nav class="nav" id="nav">
+    <button class="cerrar-menu" id="cerrar" aria-label="Cerrar menú"><i class="bi bi-x"></i></button>
+    <ul class="nav-list">
+      <li><a class="lis" href="#">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+/* Estilos globales */
+body {
+  font-family: 'Heebo', sans-serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Redes sociales */
+.rs-container {
+  display: none;
+}
+
+
+.logo {
+  max-width: 5rem;
+}
+
+/* Navegación */
+/* Estilos globales */
+body {
+  font-family: 'Heebo', sans-serif;
+}
+
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed; /* Cambiamos a fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Para asegurarnos de que esté por encima del resto del contenido */
+  transition: background-color 0.4s, box-shadow 0.3s;
+}
+
+/* Cuando el usuario hace scroll */
+header.scrolled {
+  background-color: rgba(130, 28, 111, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agrega una sombra para un efecto visual agradable */
+}
+
+/* Redes sociales */
+.rs-container {
+  display: none;
+}
+
+.logo {
+  max-width: 5rem;
+}
+
+/* Navegación */
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+
+
+.nav-list li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-list li a:hover {
+  color: #fff; /* Cambiar a blanco */
+  background-color: rgb(130, 28, 111); /* Fondo al pasar el mouse */
+  border-radius: 5px; /* Borde redondeado */
+}
+
+.nav-list li a::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  left: 50%;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.nav-list li a:hover::before {
+  width: 100%;
+  background-color: #f1b5e2; /* Color de la línea */
+}
+
+/* Abrir/Cerrar Menú */
+.abrir-menu,
+.cerrar-menu {
+  display: none;
+}
+
+/* Redes Sociales Hover */
+.rs-logo img {
+  max-width: 2rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+
+/* Responsive */
+@media screen and (max-width: 550px) {
+  .abrir-menu,
+  .cerrar-menu {
+    display: block;
+    border: 0;
+    font-size: 1.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease-in-out;
+  }
+
+  .rs-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7px;
+  }
+
+  .rs-logo {
+    margin-right: 1rem;
+  }
+
+.logo-rs {
+    width: 1.3rem;
+}
+
+  .abrir-menu:hover,
+  .cerrar-menu:hover {
+    color: #fff;
+  }
+
+  /* Menú ocupa toda la pantalla */
+  .nav {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: fixed; /* Cambiar a fixed para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(130, 28, 111);
+    padding: 3rem;
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(-100%); /* El menú comienza fuera de la pantalla */
+  }
+
+  /* Menú visible con animación */
+  .nav.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Menú se desliza desde arriba */
+  }
+
+  /* Lista de navegación centrada */
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-list li a {
+    color: #ececec;
+    font-size: 1.5rem; /* Ajustar tamaño de fuente */
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: color 0.3s, transform 0.3s ease-in-out;
+  }
+
+  /* Efecto hover para los enlaces */
+  .nav-list li a:hover {
+    color: #f1b5e2;
+    transform: scale(1.1);
+  }
+
+  /* Fondo detrás del menú */
+  .nav.visible {
+    background: rgba(130, 28, 111, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Fondo más suave */
+  }
+
+  /* Posicionar el botón de cerrar en la esquina superior derecha y más abajo */
+  .cerrar-menu {
+    position: absolute; /* Posicionarlo respecto al contenedor */
+    top: 1.5rem; /* Espaciado desde el borde superior */
+    right: 1.5rem; /* Espaciado desde el borde derecho */
+    font-size: 2rem; /* Tamaño más grande para mejor visibilidad */
+    color: #fff; /* Color blanco para contraste */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  /* Efecto hover para el botón cerrar */
+  .cerrar-menu:hover {
+    color: #f1b5e2;
+    transform: rotate(90deg); /* Agregar rotación al icono para darle dinamismo */
+  }
+}
+
+
+
+
+</style>
+
+<script>
+/* hamburguesa */
+const nav = document.querySelector("#nav");
+const abrir = document.querySelector("#abrir");
+const cerrar = document.querySelector("#cerrar");
+
+abrir.addEventListener("click", () => {
+  nav.classList.add("visible");
+});
+
+cerrar.addEventListener("click", () => {
+  nav.classList.remove("visible");
+});
+
+/*cuando scroll cambia de color  */
+
+document.addEventListener('scroll',()=>{
+    const header = document.querySelector('header');
+    if (window.scrollY > 0) {
+        header.classList.add('scrolled');
+    }else {
+        header.classList.remove('scrolled');
+    }
+    
+})
+
+
+
+</script>

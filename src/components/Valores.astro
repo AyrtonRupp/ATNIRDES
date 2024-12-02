@@ -1,0 +1,112 @@
+<div class="values-section">
+    <h1>Valores Clave</h1>
+    <div class="values-content">
+      <ul>
+        <li><strong>Responsabilidad y Respeto:</strong> Cada miembro del equipo se responsabiliza de sus tareas, las planifica, respeta las ideas y aportes de los demás.</li>
+        <li><strong>Trabajo en Equipo:</strong> Colaborar en proyectos conjuntos, compartiendo conocimientos, evitando críticas destructivas y escuchando activamente todas las propuestas.</li>
+        <li><strong>Crecimiento Continuo:</strong> Todos los días aprendemos algo nuevo. Se promueve la capacitación constante y la mejora continua en habilidades y procesos.</li>
+        <li><strong>Empatía hacia el Cliente:</strong> Cada interacción y producto debe enfocarse en entender al cliente y ofrecerle una solución clara, sencilla y útil con compromiso.</li>
+        <li><strong>Balance y Motivación:</strong> Proporcionar libertad y autonomía en el trabajo, buscando siempre un equilibrio entre la vida personal y profesional.</li>
+      </ul>
+    </div>
+</div>
+
+<style>
+/* Sección Valores Clave */
+.values-section {
+  width: 100%;
+  padding: 3rem;
+  position: relative;
+  color: white;
+  text-align: center;
+  background-image: url(/public/assets/images/neon.jpg); /* Cambia la ruta con tu imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efecto parallax */
+  overflow: hidden; /* Asegura que el fondo cubra toda la sección sin desbordarse */
+}
+
+/* Fondo oscuro que cubre todo el div (título y contenido) */
+.values-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+  z-index: 1; /* Lo ponemos debajo del contenido */
+}
+
+/* Estilo del título centrado y por encima del fondo oscuro */
+.values-section h1 {
+  font-family: 'Heebo', sans-serif;
+  font-size: 3rem; /* Tamaño más grande */
+  font-weight: 700; /* Más grueso */
+  color: rgb(255, 255, 255); /* Blanco para resaltar sobre el fondo oscuro */
+  margin-bottom: 2rem; /* Espacio entre el título y el contenido */
+  text-align: center; /* Centrado del título */
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); /* Sombra más fuerte para hacer resaltar el texto */
+  position: relative;
+  z-index: 2; /* Aseguramos que el título esté por encima de la capa oscura */
+  padding: 1rem 0; /* Agregar padding para hacerlo más destacable */
+}
+
+/* Contenido de la sección */
+.values-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  border-radius: 8px; /* Bordes redondeados */
+  margin-top: 1rem;
+  text-align: left; /* Alineación izquierda para el texto dentro de los elementos de la lista */
+}
+
+/* Estilo de la lista */
+.values-content ul {
+  list-style-type: none;
+  padding: 0;
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.1rem;
+  color: white;
+  margin: 0;
+}
+
+.values-content li {
+  margin: 1rem 0;
+  line-height: 1.8;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.values-content strong {
+  color: rgb(255, 255, 255); /* Blanco para el texto importante */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .values-section h1 {
+    font-size: 2.5rem; /* Ajuste de tamaño */
+  }
+
+  .values-content {
+    padding: 0 1rem;
+  }
+
+  .values-content li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-section h1 {
+    font-size: 2rem; /* Ajuste de tamaño */
+  }
+
+  .values-content li {
+    font-size: 0.9rem;
+  }
+}
+</style>
+
