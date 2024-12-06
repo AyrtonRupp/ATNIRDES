@@ -1,0 +1,1040 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    background-color: #F4F4F4; /* Fondo claro */
+    color: #333333; /* Texto oscuro */
+  }
+  /* Header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.4s, box-shadow 0.3s;
+  }
+  
+  header.scrolled {
+    background-color: rgba(78, 110, 129, 0.9); /* Color principal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Redes sociales */
+  .rs-container {
+    display: none;
+    
+  }
+  
+  .logo {
+    max-width: 5rem;
+  }
+  
+  /* Navegación */
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-list li a {
+    text-decoration: none;
+    color: #333333; /* Texto oscuro */
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-list li a:hover {
+    color: #fff;
+    background-color: #F59E42; /* Color de contraste */
+    border-radius: 5px;
+  }
+  
+  .nav-list li a::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    left: 50%;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+  
+  .nav-list li a:hover::before {
+    width: 100%;
+    background-color: #f1b5e2;
+  }
+  .rs-logo:hover {
+    background-color: #F59E42; /* Fondo contraste */
+    color: #4E6E81; /* Texto invertido */
+  }
+  
+  .rs-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 0.5rem;
+    border-radius: 50%;
+    background-color: #4E6E81; /* Fondo principal */
+    color: #F59E42; /* Color de contraste */
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Abrir/Cerrar Menú */
+  .abrir-menu,
+  .cerrar-menu {
+    display: none;
+  }
+  
+  /* Redes Sociales Hover */
+  .rs-logo img {
+    max-width: 2rem;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 550px) {
+    .abrir-menu,
+    .cerrar-menu {
+      display: block;
+      border: 0;
+      font-size: 1.5rem;
+      background-color: transparent;
+      cursor: pointer;
+      color: #333333; /* Texto oscuro */
+      transition: color 0.3s ease-in-out;
+    }
+  
+    .rs-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+  
+    .rs-logo {
+      width: 2rem; /* Tamaño ajustado para móviles */
+      height: 2rem;
+      font-size: 1.2rem;
+    }
+  
+    .logo-rs {
+      width: 1.3rem;
+    }
+  
+    .abrir-menu:hover,
+    .cerrar-menu:hover {
+      color: #fff;
+    }
+  
+    .nav {
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #4E6E81; /* Color principal */
+      padding: 3rem;
+      z-index: 1000;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.3s ease-in-out;
+      transform: translateY(-100%);
+    }
+  
+    .nav.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  
+    .nav-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+  
+    .nav-list li a {
+      color: #ececec;
+      font-size: 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: color 0.3s, transform 0.3s ease-in-out;
+    }
+  
+    .nav-list li a:hover {
+      color: #F59E42; /* Color de contraste */
+      transform: scale(1.1);
+    }
+  
+    .nav.visible {
+      background: rgba(78, 110, 129, 0.9); /* Color principal */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+  
+    .cerrar-menu {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      color: #fff;
+      transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+  
+    .cerrar-menu:hover {
+      color: #F59E42; /* Color de contraste */
+      transform: rotate(90deg);
+    }
+  }
+
+  
+/* Sección Valores Clave */
+.values-section {
+    width: 100%;
+    padding: 3rem;
+    position: relative;
+    color: white;
+    text-align: center;
+    background-image: url(/assets/images/neon.jpg); /* Cambia la ruta con tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto parallax */
+    overflow: hidden; /* Asegura que el fondo cubra toda la sección sin desbordarse */
+  }
+  
+  /* Fondo oscuro que cubre todo el div (título y contenido) */
+  .values-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+    z-index: 1; /* Lo ponemos debajo del contenido */
+  }
+  
+  /* Estilo del título centrado y por encima del fondo oscuro */
+  .values-section h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3rem; /* Tamaño más grande */
+    font-weight: 700; /* Más grueso */
+    color: rgb(255, 255, 255); /* Blanco para resaltar sobre el fondo oscuro */
+    margin-bottom: 2rem; /* Espacio entre el título y el contenido */
+    text-align: center; /* Centrado del título */
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); /* Sombra más fuerte para hacer resaltar el texto */
+    position: relative;
+    z-index: 2; /* Aseguramos que el título esté por encima de la capa oscura */
+    padding: 1rem 0; /* Agregar padding para hacerlo más destacable */
+  }
+  
+  /* Contenido de la sección */
+  .values-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    border-radius: 8px; /* Bordes redondeados */
+    margin-top: 1rem;
+    text-align: center; /* Centrado del contenido */
+  }
+  
+  /* Estilo de la lista */
+  .values-content ul {
+    list-style-type: none;
+    padding: 0;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.1rem;
+    color: white;
+    margin: 0;
+  }
+  
+  .values-content li {
+    margin: 1rem 0;
+    line-height: 1.8;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .values-content strong {
+    color: rgb(255, 255, 255); /* Blanco para el texto importante */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .values-section h1 {
+      font-size: 2.5rem; /* Ajuste de tamaño */
+    }
+  
+    .values-content {
+      padding: 0 1rem;
+    }
+  
+    .values-content li {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .values-section h1 {
+      font-size: 2rem; /* Ajuste de tamaño */
+    }
+  
+    .values-content li {
+      font-size: 0.9rem;
+    }
+  }
+  
+
+
+/* Estilo general de la barra de scroll */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #F59E42, #4E6E81); /* Colores invertidos de Atnirdes */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Efecto de sombra */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #4E6E81, #F59E42); /* Cambio al pasar el cursor */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(7, 13, 31, 0.8); /* Fondo oscuro */
+    border-radius: 5px;
+}
+
+
+/* Agregar el efecto de scroll a cada sección */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  h2, h3, p {
+    color: #333; /* Color de texto general */
+  }
+  
+  /* Agregar márgenes entre secciones */
+  section {
+    margin-bottom: 50px;
+  }
+
+  
+ /* Footer */
+.footer {
+    background-color: #4E6E81; /* Color principal de Atnirdes */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Exo 2', sans-serif; /* Tipografía Exo 2 */
+    opacity: 0; /* Inicialmente oculto */
+    transform: translateY(20px); /* Desplazado hacia abajo */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.footer-logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-divider {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 15px auto;
+    width: 80%;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Responsivo Design */
+@media (max-width: 600px) {
+    .footer-logo {
+        max-width: 100px;
+    }
+
+    .footer-divider {
+        width: 90%;
+    }
+
+    .footer-copyright {
+        font-size: 0.8rem;
+    }
+}
+
+/* Animación cuando se hace visible */
+.footer.visible {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+
+  /* Hero Section */
+  .hero-section {
+    width: 100%;
+    height: 60vh; /* Aumento la altura para hacerlo más prominente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #F4F4F4; /* Fondo claro */
+    border-top: 2px solid #F59E42; /* Línea decorativa con color de contraste */
+    border-bottom: 2px solid #F59E42;
+    padding: 3rem 1.5rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Suavizar transiciones */
+  }
+
+  /* Texto */
+  .hero-section h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3rem; /* Aumento el tamaño para mayor impacto */
+    background: linear-gradient(90deg, #F59E42, #4E6E81); /* Gradiente dorado a azul */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    animation: fadeIn 1.5s ease-out;
+  }
+
+  .hero-section p {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.4rem;
+    color: #333333; /* Texto en color oscuro */
+    margin: 1rem 0;
+    animation: fadeIn 2s ease-out;
+  }
+
+  /* Botón */
+  .cta-button {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #4E6E81; /* Color principal */
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem 2rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  }
+
+  .cta-button:hover {
+    background-color: #F59E42; /* Color de contraste al hacer hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2); /* Sombra de botón dorada */
+  }
+
+  /* Animaciones */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsivo */
+  @media screen and (max-width: 768px) {
+    .hero-section {
+      height: auto;
+      padding: 3rem 2rem;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-section p {
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      font-size: 1rem;
+      padding: 0.6rem 1.8rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+
+    .hero-section p {
+      font-size: 1rem;
+    }
+
+    .cta-button {
+      font-size: 0.9rem;
+      padding: 0.5rem 1.5rem;
+    }
+  }
+
+
+    /* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #4E6E81; /* Fondo color principal de Atnirdes */
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Exo 2', sans-serif;
+}
+
+.modal-content h2 {
+    color: #F59E42; /* Color de contraste de Atnirdes */
+    margin-bottom: 20px;
+}
+
+
+
+.modal-content button {
+    background-color: #F59E42; /* Color de contraste de Atnirdes */
+    color: #4E6E81; /* Color principal de Atnirdes */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.modal-content button:hover {
+    background-color: #4E6E81; /* Fondo color principal de Atnirdes */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Formulario */
+.contactenos-box {
+    background: linear-gradient(to bottom right, #F4F4F4, #F4F4F4);
+    padding: 20px;
+    border-top: 2px solid #F59E42; /* Línea decorativa con color de contraste */
+    border-bottom: 2px solid #F59E42;
+}
+
+.contact {
+    background: rgba(78, 110, 129, 0.5); /* Fondo color principal de Atnirdes */
+    backdrop-filter: blur(10px);
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.contact h1 {
+    color: #F59E42; /* Color de contraste de Atnirdes */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 8px;
+    color: #F2F2F2; /* Blanco tenue */
+    font-family: 'Exo 2', sans-serif;
+}
+
+.contact input,
+.contact textarea,
+.contact button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #F59E42; /* Color de contraste de Atnirdes */
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: 'Exo 2', sans-serif;
+    color: #4E6E81; /* Color principal de Atnirdes */
+}
+
+.contact textarea {
+    resize: none;
+    height: 120px;
+}
+
+.contact button,
+.modal-content button {
+    background-color: #F59E42; /* Color de contraste de Atnirdes */
+    color: #4E6E81; /* Color principal de Atnirdes */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Exo 2', sans-serif;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact button:hover,
+.modal-content button:hover {
+    background-color: #4E6E81; /* Fondo color principal de Atnirdes */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .contact {
+        padding: 20px;
+    }
+
+    .contact h1 {
+        font-size: 1.5rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Altura ajustada */
+    overflow: hidden;
+}
+
+/* Video de fondo */
+.carousel-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+/* Contenido del carrusel */
+.carousel-content {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ocupa toda la altura del carrusel */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Posiciona el contenido en la base */
+    overflow: hidden; /* Asegura que no se vean elementos fuera del carrusel */
+}
+
+/* Cada slide ocupa su propio espacio */
+.carousel-item {
+    position: absolute;
+    width: 100%; /* Cada slide ocupa todo el ancho del carrusel */
+    height: 100%;
+    display: none; /* Ocultar slides que no estén activos */
+    justify-content: center; /* Centramos el contenido horizontalmente */
+    align-items: flex-end; /* Centramos verticalmente cerca de la base */
+}
+
+.carousel-item.active {
+    display: flex; /* Solo el slide activo será visible */
+}
+
+/* Texto con fondo translúcido */
+.carousel-text {
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 80%; /* Limita el ancho del texto */
+    margin-bottom: 0; /* Eliminar margin */
+    font-family: exo 2, montserrat;
+}
+
+.carousel-text h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.carousel-text p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    color: white;
+}
+
+/* Puntos de navegación */
+.carousel-dots {
+    position: absolute;
+    bottom: 10px; /* Espaciado desde el texto */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: rgba(255, 255, 255, 1);
+}
+  
+
+  
+  
+  /* Sección de Servicios */
+  .services-section {
+    width: 100%;
+    padding: 2rem;
+    background-color: #F4F4F4; /* Fondo claro */
+    text-align: center;
+  }
+  
+  .services-section h1 {
+    font-size: 3rem;
+    color: #F59E42; /* Color de contraste dorado */
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #F59E42, #4E6E81); /* Gradiente entre color de contraste y color principal */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    font-weight: bold;
+  }
+
+
+  .services-section h1::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 4px;
+    margin: 0.5rem auto 0;
+    background: linear-gradient(90deg, #4E6E81, #F59E42);
+    border-radius: 2px;
+  }
+  
+  .services-section p {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.2rem;
+    color: #333333; /* Color de texto oscuro */
+    margin-bottom: 2rem;
+  }
+  
+  /* Layout responsivo */
+  .cards-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+  
+  /* Tarjetas de servicios */
+  .service-card {
+    background: linear-gradient(135deg, rgba(78, 110, 129, 0.05), #ffffff); /* Color claro con color principal */
+    border: 1px solid rgba(78, 110, 129, 0.2); /* Borde con color principal */
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 22%;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(78, 110, 129, 0.3);
+    border: 1px solid rgba(78, 110, 129, 0.5);
+    background: linear-gradient(135deg, rgba(78, 110, 129, 0.1), rgba(78, 110, 129, 0.05));
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(78, 110, 129, 0.1), rgba(78, 110, 129, 0.05));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Íconos animados */
+  .icon {
+    font-size: 3.5rem;
+    color: rgba(78, 110, 129, 0.8); /* Color del icono con color principal */
+    margin-bottom: 1rem;
+    transition: transform 0.6s ease, color 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .service-card:hover .icon {
+    color: #F59E42; /* Color de contraste dorado al hacer hover */
+  }
+
+  /* Animación de flotación */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Títulos de servicios */
+  .service-card h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #F59E42, #4E6E81); /* Gradiente entre color de contraste y color principal */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: color 0.3s ease;
+  }
+
+  /* Texto */
+  .service-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+  }
+
+  .service-card:hover h3 {
+    color: rgba(78, 110, 129, 0.9); /* Color principal al hacer hover */
+  }
+
+  .service-card:hover p {
+    color: #333333; /* Color de texto oscuro al hacer hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .service-card {
+      width: 48%; /* Dos cards por fila en pantallas más pequeñas */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .service-card {
+      width: 100%; /* Una card por fila en pantallas muy pequeñas */
+    }
+  
+    .services-section h1 {
+      font-size: 2rem; /* Reducir tamaño de texto en pantallas pequeñas */
+    }
+  
+    .services-section p {
+      font-size: 1rem; /* Reducir tamaño de texto en pantallas pequeñas */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cards-container {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cards-container {
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-card {
+      width: 48%; /* Dos tarjetas por fila */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-card {
+      width: 100%; /* Una tarjeta por fila */
+    }
+  }
+
+    /* Estilo de la sección sobre nosotros */
+    .about-section {
+        width: 100%;
+        padding: 3rem 2rem;
+        background: #F4F4F4; /* Fondo claro */
+        color: #333333; /* Textos oscuros para buen contraste */
+        font-family: 'Exo 2', sans-serif;
+        text-align: center;
+        border-top: 4px solid #F59E42; /* Borde dorado superior */
+        border-bottom: 4px solid #F59E42; /* Borde dorado inferior */
+      }
+    
+      /* Títulos principales (h2) */
+      .about-section h2 {
+        font-size: 2.5rem;
+        color: #4E6E81; /* Azul suave para el título principal */
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        position: relative;
+        letter-spacing: 2px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+    
+      /* Línea decorativa debajo del h2 */
+      .about-section h2::after {
+        content: '';
+        display: block;
+        width: 60%;
+        height: 4px;
+        background: #F59E42; /* Borde dorado */
+        margin: 0.5rem auto 0;
+        border-radius: 2px;
+      }
+    
+      /* Títulos secundarios (h3) */
+      .about-section h3 {
+        font-size: 1.8rem;
+        color: #4E6E81; /* Azul suave para subtítulos */
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        position: relative;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+    
+      /* Línea decorativa debajo del h3 */
+      .about-section h3::after {
+        content: '';
+        display: block;
+        width: 40%;
+        height: 3px;
+        background: #F59E42; /* Borde dorado */
+        margin: 0.5rem auto 0;
+        border-radius: 2px;
+      }
+    
+      /* Caja alrededor del texto */
+      .about-box {
+        background: #FFFFFF; /* Fondo blanco para las cajas */
+        padding: 1.5rem;
+        margin: 1rem auto;
+        border-radius: 8px;
+        width: 80%; /* Ajusta el ancho */
+        max-width: 800px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        opacity: 0; /* Inicialmente invisible */
+        transform: translateY(20px); /* Desplazado hacia abajo para el efecto */
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animación suave */
+      }
+    
+      .about-box.fade-in {
+        opacity: 1;
+        transform: translateY(0); /* Restaurar la posición */
+      }
+    
+      /* Párrafos */
+      .about-box p {
+        font-size: 1rem;
+        color: #333333; /* Textos en gris oscuro */
+        margin: 0;
+        line-height: 1.6;
+      }
+    
+      /* Responsivo */
+      @media screen and (max-width: 768px) {
+        .about-section {
+          padding: 2rem 1rem;
+        }
+    
+        .about-section h2 {
+          font-size: 1.8rem;
+        }
+    
+        .about-section h3 {
+          font-size: 1.3rem;
+        }
+    
+        .about-box {
+          padding: 1rem;
+        }
+    
+        .about-box p {
+          font-size: 0.9rem;
+        }
+      }
+    
